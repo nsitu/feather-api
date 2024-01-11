@@ -1,0 +1,25 @@
+{
+  "name": "feather-api",
+  "version": "1.0.0",
+  "description": "Communication API for Feather Sensor Data",
+  "main": "index.js",
+  "type" : "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsitu/feather-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nsitu/feather-api/issues"
+  },
+  "homepage": "https://github.com/nsitu/feather-api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.4"
+  }
+}
