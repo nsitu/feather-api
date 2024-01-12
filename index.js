@@ -5,12 +5,14 @@ const app = express()
 const PORT = process.env.PORT || 80
 
 app.get('/', (req, res) => {
-    res.send('Hello From Express!')
+    console.log('Hello!')
+    res.send('Hello!')
   })
 
   
 app.get('/test', (req, res) => {
-  res.send('Hello From NodeJS!')
+    console.log('Hello From test!')
+  res.send('Hello From test!')
 })
 
 
