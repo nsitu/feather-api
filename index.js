@@ -10,10 +10,18 @@ app.get('/', (req, res) => {
   })
 
   
-app.get('/test', (req, res) => {
-    console.log('Hello From test!')
-  res.send('Hello From test!')
+app.get('/active', (req, res) => {
+    console.log('Active!')
+  res.send('Active!')
 })
+
+
+ 
+app.get('/inactive', (req, res) => {
+    console.log('Inactive!')
+  res.send('Inactive!')
+})
+
 
 
 

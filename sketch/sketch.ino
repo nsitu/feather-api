@@ -46,10 +46,14 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 const char* ssid = "";
 const char* password = "";
 
+const int pushButton = 5;
+
 // Create a list of certificates with the server certificate
 X509List cert(IRG_Root_X1);
 
 void setup() {
+   pinMode(pushButton, INPUT_PULLUP);  
+   
   Serial.begin(115200);
   //Serial.setDebugOutput(true);
 
@@ -84,6 +88,18 @@ void setup() {
 }
 
 void loop() {
+  String url;
+  
+  if (digitalRead(pushButton) == LOW) {
+    // Button is pressed
+    url = "https://feather-api.haroldsikkema.com/active";
+    Serial.println("Button Pressed");
+  } else {
+    // Button is not pressed
+    url = "https://feather-api.haroldsikkema.com/inactive";
+    Serial.println("Not Pressed");
+  }
+
   WiFiClientSecure client;
 
   // wait for WiFi connection
@@ -94,7 +110,7 @@ void loop() {
     HTTPClient https;
 
     Serial.print("[HTTPS] begin...\n");
-    if (https.begin(client, "https://feather-api.haroldsikkema.com/test")) {  // HTTPS
+    if (https.begin(client, url)) {  // HTTPS
 
       Serial.print("[HTTPS] GET...\n");
       // start connection and send HTTP header
