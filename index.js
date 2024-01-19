@@ -1,25 +1,24 @@
 import express from 'express'
-import mongoose from 'mongoose'
+//import mongoose from 'mongoose'
 
 const app = express()
 const PORT = process.env.PORT || 80
 
 app.get('/', (req, res) => {
-    console.log('Hello!')
     res.send('Hello!')
   })
 
   
-app.get('/active', (req, res) => {
-    console.log('Active!')
-  res.send('Active!')
+app.get('/closed/:time', (req, res) => {
+  console.log('Door is closed', req.params.time)
+  res.sendStatus(200)
 })
 
 
  
-app.get('/inactive', (req, res) => {
-    console.log('Inactive!')
-  res.send('Inactive!')
+app.get('/open/:time', (req, res) => {
+    console.log('Door is open', req.params.time) 
+  res.sendStatus(200)
 })
 
 
